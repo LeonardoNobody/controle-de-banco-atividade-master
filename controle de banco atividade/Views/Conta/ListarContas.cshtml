@@ -1,0 +1,31 @@
+﻿@model List<Conta>
+
+<h1>Lista De Contas</h1>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nome Do Cliente</th>
+            <th scope="col">Número Da Conta</th>
+            <th scope="col">Agência</th>
+            <th scope="col">Saldo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var conta in Model)
+        {
+            
+            <tr>
+                <td>@(conta is ContaPoupanca ? "Poupança" : "Corrente")</td>
+                <td>@conta.NomeCliente</td>
+                <td>@conta.NumConta</td>
+                <td>@conta.Agencia</td>
+                <td>R$ @conta.Saldo</td>
+            </tr>
+        }
+
+    </tbody>
+    </table>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar para pagina inicial</a>
